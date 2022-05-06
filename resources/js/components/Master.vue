@@ -1,5 +1,6 @@
 <template>
-<div>somthing</div>
+    <div>aiohgioasg
+    </div>
 </template>
 
 <script>

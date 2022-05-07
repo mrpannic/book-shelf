@@ -1,7 +1,7 @@
 <template>
 <div>
     <Navigation />
-    <Home v-if="$route.name === 'home'"/>
+    <router-view />
 </div>
 </template>
 

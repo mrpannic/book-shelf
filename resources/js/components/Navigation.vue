@@ -4,8 +4,8 @@
         Book Shelf
     </div>
     <div class="flex justify-end mr-10 buttons">
-        <div class="mr-5 text-lg" @click="$router.replace({name : 'home'})">Home</div>
-        <div class="text-lg" @click="logout">Logout</div>
+        <div class="mr-5 text-lg cursor-pointer" @click="$router.replace({name : 'home'})">Home</div>
+        <div class="text-lg cursor-pointer" @click="logout">Logout</div>
     </div>
         
 </div>

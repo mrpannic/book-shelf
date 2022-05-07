@@ -4,7 +4,7 @@
         <input type="file" id="file" name="file" accept=".csv, .xlss .xml">
     </div>
     <div class="flex justify-center align-center books-box mt-10 py-10">
-        <Books />
+        <Books ref="books"/>
     </div>
     </div>
 </template>

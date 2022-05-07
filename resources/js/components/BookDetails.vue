@@ -25,6 +25,16 @@
 
 <script>
 export default {
+    name: 'BookDetails',
+    mounted(){
+        window.axios.get(`${location.origin}/api/books/${this.$route.params.id}`)
+            .then( (res) => {
+                this.book = res.data
+            })
+            .catch( (err) => {
+                alert(err.message)
+            })
+    },
     methods:{
 
     }

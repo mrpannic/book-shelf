@@ -35,23 +35,29 @@
 <script>
 import BookItem from './BookItem.vue'
 export default {
-  components: { BookItem },
+    name: 'Books',
+    components: { BookItem },
+    mounted(){
+        this.search()
+    },
     data() {
         return {
             byName: '',
             byDate: 0,
-            books: [
-                {id: 1, name: "Book1", publisher: "SOme publish", author: "some author", published_date:"some:date"},
-                {id: 1, name: "Book1", publisher: "SOme publish", author: "some author", published_date:"some:date"},
-                {id: 1, name: "Book1", publisher: "SOme publish", author: "some author", published_date:"some:date"},
-                {id: 1, name: "Book1", publisher: "SOme publish", author: "some author", published_date:"some:date"}
-            ]
+            books: []
         }
     },
     methods:{
         search() {
-            console.log(this.byName, this.byDate)
-        }
+             window.axios.get(`${location.origin}/api/bosoks`)
+                .then( (res) => {
+                    this.books = res.data
+                })
+                .catch( (err) => {
+                    alert(err.message)
+                })
+            
+        },
     }
 }
 </script>

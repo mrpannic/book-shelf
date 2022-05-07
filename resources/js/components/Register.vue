@@ -33,14 +33,14 @@ export default {
     },
     methods:{
         register(){
-            this.$http.post(`${location.origin}/register`, {"email" : this.email, "password" : this.password})
+            window.axios.post(`${location.origin}/register`, {"email" : this.email, "password" : this.password}, {})
                 .then( (res) => {
                     localStorage.setItem('token', 'Bearer ' + res.data.token)
-                    this.$http.defaults.headers.common['Authentication'] = localStorage.getItem('token')
+                    window.axios.defaults.headers.common['Authentication'] = localStorage.getItem('token')
                     this.$router.replace({name : 'home'})
                 })
                 .catch( (error) => {
-                    alert("Invalid email or password")
+                    alert("User exists")
                 })
         }
     }

@@ -11,7 +11,7 @@
             <input class="block" type="password" v-model="password" name="email">
         </div>
         <div class="flex justify-between mt-10">
-            <div @click="$router.push({name : 'home'})" class="route-button mr-16 text-center cursor-pointer">
+            <div @click="$router.push({name : 'register'})" class="route-button mr-16 text-center cursor-pointer">
                 Register 
             </div>
             <div @click="login()" class="route-button text-center cursor-pointer">
@@ -35,10 +35,10 @@ export default {
     methods:{
         login(){
             // not so secure
-            this.$http.get(`${location.origin}/register?email=${email}&password=${password}`)
+            window.axios.post(`${location.origin}/login?email=${this.email}&password=${this.password}`)
                 .then( (res) => {
                     localStorage.setItem('token', 'Bearer ' + res.data.token)
-                    this.$http.defaults.headers.common['Authentication'] = localStorage.getItem('token')
+                    window.axios.defaults.headers.common['Authentication'] = localStorage.getItem('token')
                     this.$router.replace({name : 'home'})
                 })
                 .catch( (error) => {

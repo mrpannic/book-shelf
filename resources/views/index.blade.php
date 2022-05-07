@@ -7,7 +7,7 @@
         <title>Book Shelf</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" >
     </head>
-    <body>
+    <body style="background: #111827">
       <div id="app"></div>
       <script src="{{ asset('/js/app.js') }}"></script>
     </body>

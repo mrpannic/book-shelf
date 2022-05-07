@@ -1,0 +1,78 @@
+<template>
+  <div class="flex justify-center items-center h-screen rounded">
+    <div class="flex flex-col login place-items-center content-center">
+        <div class="flex flex-col w-full input-field">
+            <label class="block" for="name">Email</label>
+            <input type="text" v-model="email" name="email">
+        </div>
+
+        <div class="flex flex-col input-field">
+            <label class="block" for="name">Password</label>
+            <input class="block" type="password" v-model="password" name="email">
+        </div>
+        <div class="flex justify-between mt-10">
+            <div @click="$router.push({name : 'home'})" class="route-button mr-16 text-center cursor-pointer">
+                Register 
+            </div>
+            <div @click="login()" class="route-button text-center cursor-pointer">
+                Login 
+            </div>
+        </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+
+    name: "Login",
+    data() {
+        return {
+            email: '',
+            password: ''
+        }
+    },
+    methods:{
+        login(){
+            // not so secure
+            this.$http.get(`${location.origin}/register?email=${email}&password=${password}`)
+                .then( (res) => {
+                    localStorage.setItem('token', 'Bearer ' + res.data.token)
+                    this.$http.defaults.headers.common['Authentication'] = localStorage.getItem('token')
+                    this.$router.replace({name : 'home'})
+                })
+                .catch( (error) => {
+                    alert("Invalid email or password")
+            })
+        }
+    }
+} 
+</script>
+
+<style scoped>
+    .login {
+        height: 400px;
+        width: 400px;
+        background-color: #374151;
+        border-radius: 10px;
+        padding: 50px 50px;
+    }
+    .input-field {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+        color: white;
+    }
+    .input-field input {
+        background-color: #e3e3e3;
+        border-radius: 10px;
+        color: #111827;
+    }
+    .route-button {
+        background: #111827;
+        color: #e3e3e3;
+        padding: 10px 20px;
+        border-radius: 5px;
+        width: 100px;
+    }
+</style>

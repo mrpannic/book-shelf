@@ -49,7 +49,7 @@ export default {
     },
     methods:{
         search() {
-             window.axios.get(`${location.origin}/api/bosoks`)
+            window.axios.get(`${location.origin}/api/books?name=${this.byName}&date=${this.byDate}`)
                 .then( (res) => {
                     this.books = res.data
                 })

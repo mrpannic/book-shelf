@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $books = Book::paginate(20);
+        $books = Book::filter($request->all())->paginate(20);
         return response()->json(new BookCollection($books), 200);
     }
 

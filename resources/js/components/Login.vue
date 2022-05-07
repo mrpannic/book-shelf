@@ -37,8 +37,8 @@ export default {
             // not so secure
             window.axios.post(`${location.origin}/login?email=${this.email}&password=${this.password}`)
                 .then( (res) => {
-                    localStorage.setItem('token', 'Bearer ' + res.data.token)
-                    window.axios.defaults.headers.common['Authentication'] = localStorage.getItem('token')
+                    localStorage.setItem('token', `Bearer ${res.data.token}`)
+                    window.axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
                     this.$router.replace({name : 'home'})
                 })
                 .catch( (error) => {

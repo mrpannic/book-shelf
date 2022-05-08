@@ -34,15 +34,6 @@ class User extends Authenticatable implements JWTSubject
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
     public function getJWTIdentifier()
     {
         return $this->getKey();
@@ -60,7 +51,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function roles() 
     {
-        return $this->belongsToMany(Role::class, 'user_role');
+        return $this->belongsToMany(Role::class,);
     }
 
     public function isAdmin()

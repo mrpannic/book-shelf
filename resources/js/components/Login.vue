@@ -38,6 +38,7 @@ export default {
             window.axios.post(`${location.origin}/login?email=${this.email}&password=${this.password}`)
                 .then( (res) => {
                     localStorage.setItem('token', `Bearer ${res.data.token}`)
+                    localStorage.setItem('admin', res.data.user.is_admin)
                     window.axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
                     this.$router.replace({name : 'home'})
                 })

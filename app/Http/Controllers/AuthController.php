@@ -34,7 +34,7 @@ class AuthController extends Controller {
         catch (\Exception $e){
             return response()->json($e->getMessage());
         }
-        
-        return response()->json(['token' => $token], 200);
+
+        return response()->json(['token' => $token, 'user' => new UserResource(JWTAuth::user())], 200);
     }
 }

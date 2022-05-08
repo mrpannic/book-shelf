@@ -33,7 +33,7 @@ export default {
     },
     methods:{
         register(){
-            window.axios.post(`${location.origin}/register`, {"email" : this.email, "password" : this.password}, {})
+            window.axios.post(`${location.origin}/register`, {"email" : this.email, "password" : this.password})
                 .then( (res) => {
                     localStorage.setItem('token', 'Bearer ' + res.data.token)
                     localStorage.setItem('admin', res.data.is_admin)

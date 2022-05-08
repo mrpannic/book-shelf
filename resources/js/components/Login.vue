@@ -3,12 +3,12 @@
     <div class="flex flex-col login place-items-center content-center">
         <div class="flex flex-col w-full input-field">
             <label class="block" for="name">Email</label>
-            <input type="text" v-model="email" name="email">
+            <input type="text" v-model="email" name="email" required>
         </div>
 
         <div class="flex flex-col input-field">
             <label class="block" for="name">Password</label>
-            <input class="block" type="password" v-model="password" name="email">
+            <input class="block" type="password" v-model="password" name="email" required>
         </div>
         <div class="flex justify-between mt-10">
             <div @click="$router.push({name : 'register'})" class="route-button mr-16 text-center cursor-pointer">
@@ -35,11 +35,11 @@ export default {
     methods:{
         login(){
             // not so secure
-            window.axios.post(`${location.origin}/login?email=${this.email}&password=${this.password}`)
+            this.axios.post(`${location.origin}/login?email=${this.email}&password=${this.password}`)
                 .then( (res) => {
                     localStorage.setItem('token', `Bearer ${res.data.token}`)
                     localStorage.setItem('admin', res.data.user.is_admin)
-                    window.axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+                    this.axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
                     this.$router.replace({name : 'home'})
                 })
                 .catch( (error) => {

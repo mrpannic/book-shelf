@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\UserResource;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use App\Http\Resources\UserResource;
+use App\Http\Requests\UserAuthRequest;
 
 class AuthController extends Controller {
 
-    public function register(Request $request){
+    public function register(UserAuthRequest $request){
         $credentials = $request->only(['email', 'password']);
 
         try {
@@ -22,7 +22,7 @@ class AuthController extends Controller {
         return response()->json(['token' => $token, 'user' => new UserResource($user)]);
     }
 
-    public function login(Request $request){
+    public function login(UserAuthRequest $request){
         $token = '';
         try {
             $credentials = $request->only(['email', 'password']);

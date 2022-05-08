@@ -24,7 +24,7 @@ export default {
             let file = this.$refs.tablefile.files[0]
             formData.append('file', file)
 
-            window.axios.post(`${location.origin}/api/table-file`, formData)
+            this.axios.post(`${location.origin}/api/table-file`, formData)
                 .then( (res) => {
                     this.$refs.books.search()
                 })

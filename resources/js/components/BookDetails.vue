@@ -33,7 +33,7 @@ export default {
         }
     },
     created(){
-        window.axios.get(`${location.origin}/api/books/${this.$route.params.id}`)
+        this.axios.get(`${location.origin}/api/books/${this.$route.params.id}`)
             .then( (res) => {
                 this.book = res.data
             })

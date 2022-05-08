@@ -3,12 +3,12 @@
     <div class="flex flex-col register place-items-center content-center">
         <div class="flex flex-col w-full input-field">
             <label class="block" for="name">Email</label>
-            <input type="text" v-model="email" name="email">
+            <input type="text" v-model="email" name="email" required>
         </div>
 
         <div class="flex flex-col input-field">
             <label class="block" for="name">Password</label>
-            <input class="block" type="password" v-model="password" name="email">
+            <input class="block" type="password" v-model="password" name="email" required>
         </div>
 
         <div 
@@ -33,11 +33,11 @@ export default {
     },
     methods:{
         register(){
-            window.axios.post(`${location.origin}/register`, {"email" : this.email, "password" : this.password})
+            this.axios.post(`${location.origin}/register`, {"email" : this.email, "password" : this.password})
                 .then( (res) => {
                     localStorage.setItem('token', 'Bearer ' + res.data.token)
                     localStorage.setItem('admin', res.data.is_admin)
-                    window.axios.defaults.headers.common['Authentication'] = localStorage.getItem('token')
+                    this.axios.defaults.headers.common['Authentication'] = localStorage.getItem('token')
                     this.$router.replace({name : 'home'})
                 })
                 .catch( (error) => {

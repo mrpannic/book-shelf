@@ -3,11 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class RoleTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,11 +18,18 @@ class RoleTableSeeder extends Seeder
     public function run()
     {
         Schema::disableForeignKeyConstraints();
-        Role::truncate();
+        User::truncate();
         
-        Role::create(['id' => 1, 'name' => 'Admin']);
-        Role::create(['id' => 2, 'name' => 'Member']);
+        DB::table('role_user')->truncate();
+
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
+
 
         Schema::enableForeignKeyConstraints();
+
+        $user1->roles()->sync([Role::ADMIN]);
+        $user2->roles()->sync([Role::MEMBER]);
+
     }
 }

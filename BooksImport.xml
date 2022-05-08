@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <row>
+    <name>Fundamentals of Wavelets</name>
+    <author>Goswami, Jaideva</author>
+    <publisher>Wiley</publisher>
+    <published_date>13/12/1968</published_date>
+  </row>
+  <row>
+    <name>Data Smart</name>
+    <author>Foreman, John</author>
+    <publisher>Wiley</publisher>
+    <published_date>19/02/1934</published_date>
+  </row>
+  <row>
+    <name>God Created the Integers</name>
+    <author>Hawking, Stephen</author>
+    <publisher>Penguin</publisher>
+    <published_date>13/12/2020</published_date>
+  </row>
+  <row>
+    <name>Superfreakonomics</name>
+    <author>Dubner, Stephen</author>
+    <publisher>HarperCollins</publisher>
+    <published_date>09/04/2021</published_date>
+  </row>
+  <row>
+    <name>Orientalism</name>
+    <author>Said, Edward</author>
+    <publisher>Penguin</publisher>
+    <published_date>25/11/2008</published_date>
+  </row>
+  <row>
+    <name>Nature of Statistical Learning Theory, The</name>
+    <author>Vapnik, Vladimir</author>
+    <publisher>Springer</publisher>
+    <published_date>29/01/2004</published_date>
+  </row>
+  <row>
+    <name>Integration of the Indian States</name>
+    <author>Menon, V P</author>
+    <publisher>Orient Blackswan</publisher>
+    <published_date>30/08/2011</published_date>
+  </row>
+  <row>
+    <name>Drunkard&apos;s Walk, The</name>
+    <author>Mlodinow, Leonard</author>
+    <publisher>Penguin</publisher>
+    <published_date>25/11/2018</published_date>
+  </row>
+  <row>
+    <name>Image Processing &amp; Mathematical Morphology</name>
+    <author>Shih, Frank</author>
+    <publisher>CRC</publisher>
+    <published_date>29/01/2003</published_date>
+  </row>
+  <row>
+    <name>How to Think Like Sherlock Holmes</name>
+    <author>Konnikova, Maria</author>
+    <publisher>Penguin</publisher>
+    <published_date>11/07/2012</published_date>
+  </row>
+  <row>
+    <name>Data Scientists at Work</name>
+    <author>Sebastian Gutierrez</author>
+    <publisher>Apress</publisher>
+    <published_date>21/12/1998</published_date>
+  </row>
+  <row>
+    <name>Slaughterhouse Five</name>
+    <author>Vonnegut, Kurt</author>
+    <publisher>Random House</publisher>
+    <published_date>05/11/2016</published_date>
+  </row>
+  <row>
+    <name>Birth of a Theorem</name>
+    <author>Villani, Cedric</author>
+    <publisher>Bodley Head</publisher>
+    <published_date>16/06/2021</published_date>
+  </row>
+  <row>
+    <name>Structure &amp; Interpretation of Computer Programs</name>
+    <author>Sussman, Gerald</author>
+    <publisher>MIT Press</publisher>
+    <published_date>19/03/2019</published_date>
+  </row>
+</root>

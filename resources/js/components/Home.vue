@@ -56,5 +56,6 @@ export default {
         color: white;
         border: 1px solid white;
         padding: 10px 20px;
+        cursor: pointer;
     }
 </style>

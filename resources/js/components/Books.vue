@@ -73,7 +73,7 @@ export default {
         border-bottom: 1px solid gray;
         border-top: 1px solid gray;
         padding: 10px 40px;
-        width: 200px;
+        text-align: center;
     }
     input[type="search"], .search-button {
         background: #1f2937;

@@ -26,7 +26,7 @@ export default {
 
             window.axios.post(`${location.origin}/api/table-file`, formData)
                 .then( (res) => {
-                    this.$ref.books.search()
+                    this.$refs.books.search()
                 })
                 .catch( (err) => {
                     alert(err.message)

@@ -1,23 +1,19 @@
 <template>
-    <div class="flex justify-center align-center books-box mt-10 py-10">
+    <div class="flex justify-center align-center books-box mt-10 py-10 w-full text-center">
         <div>
         <table role="table" id="book">
         <tr>
-            <td>Name</td>
+            <td>Name: {{ book.name }}</td>
         </tr>
         <tr>
-            <td>Publisher</td>
+            <td>Publisher: {{ book.publisher }}</td>
         </tr>
         <tr>
-            <td>Author</td>
+            <td>Author: {{ book.author }}</td>
         </tr>
         <tr>
-            <td>Published date</td>
+            <td>Published date: {{ book.published_date }}</td>
         </tr>
-        <tr>
-            <td>TEXT</td>
-        </tr>
-        
     </table>
         </div>
     </div>
@@ -26,7 +22,17 @@
 <script>
 export default {
     name: 'BookDetails',
-    mounted(){
+    data(){
+        return {
+            book: {
+                name: '',
+                author: '',
+                publisher: '',
+                published_date: ''
+            }
+        }
+    },
+    created(){
         window.axios.get(`${location.origin}/api/books/${this.$route.params.id}`)
             .then( (res) => {
                 this.book = res.data
@@ -44,7 +50,6 @@ export default {
 <style scoped>
     #book {
         padding: 100px;
-        width: 70%;
     }
     #book td {
         text-transform: uppercase;
@@ -52,7 +57,7 @@ export default {
         border-bottom: 1px solid gray;
         border-top: 1px solid gray;
         padding: 10px 40px;
-        width: 200px;
+        width: 800px;
     }
 
 </style>

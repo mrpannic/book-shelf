@@ -1,6 +1,6 @@
 <template>
-  <tr>
-  <!-- <router-link /> -->
+
+  <tr class="cursor-pointer text-center" @click="$router.replace({name: 'book-details', params: {id: book.id}})">
     <td>
         {{ book.name }}
     </td>

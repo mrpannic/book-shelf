@@ -15,10 +15,10 @@ class Date {
     {
         $rawDate = DB::raw('date(published_date)');
         if($value == 1)
-             $builder->where($rawDate, Carbon::now()->subYears(self::FIVE_YEARS_AGO)->toDateString());
+             $builder->where($rawDate, '>=', Carbon::now()->subYears(self::FIVE_YEARS_AGO)->toDateString());
         
         if($value == 2)
-             $builder->where($rawDate,  Carbon::now()->subYears(self::TEN_YEARS_AGO)->toDateString());
+             $builder->where($rawDate, '>=', Carbon::now()->subYears(self::TEN_YEARS_AGO)->toDateString());
 
         if($value == 3)
              $builder->where($rawDate, '<', Carbon::now()->subYears(self::TEN_YEARS_AGO)->toDateString());

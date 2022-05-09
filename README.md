@@ -23,8 +23,8 @@
 
 ## Book Filters
 - Date filter is being applied by using values 1, 2 or 3 which filters by book published date in last 5 years, last 10 years and more then 10 years respectively.
-- Name filter is being applied by entering a snippet of a book name
-- example `https://{domain}/api/books?name=someName&filter=2` - returns books with names containing "someName" and with published date which is in last 10 years ago.
+- Name filter is being applied by entering a snippet of the book name
+- example `https://{domain}/api/books?name=someName&filter=2` - returns books with names containing "someName" and with published date which is in the last 10 years.
 
 ## Available routes
 - GET `/` 

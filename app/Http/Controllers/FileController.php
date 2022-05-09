@@ -12,11 +12,8 @@ class FileController extends Controller
 {
     public function parse(BooksUploadRequest $request)
     {
-        if(!JWTAuth::user()->isAdmin())
-            return response()->json(["message" => 'Only Admin users can upload files'], 403);
-
         $file = $request->file('file');
-        
+
         try {
             $parsedData = (new TableFileParser($file))->parse();
 
@@ -35,6 +32,6 @@ class FileController extends Controller
             return response()->json(["message" => $e->getMessage()], 400);
         }
 
-        return response()->json(["message" => "Books added", 201]);
+        return response()->json(["message" => "Books added"], 201);
     }
 }

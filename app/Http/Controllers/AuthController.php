@@ -19,7 +19,7 @@ class AuthController extends Controller {
         catch (\Exception $e){
             return response()->json($e->getMessage(), 400);
         }
-        return response()->json(['token' => $token, 'user' => new UserResource($user)]);
+        return response()->json(['token' => $token, 'user' => new UserResource($user)], 201);
     }
 
     public function login(UserAuthRequest $request){

@@ -9,6 +9,7 @@
 
 ## Setup - Frontend
 - Install node - preferred v18.1.0
+- Install npm - if not installed with node
 - After cloning the repo from project root run:
 - `npm install`
 - `npm run dev`
@@ -19,21 +20,39 @@
 - Position in the project root and run:
 - `composer install`
 - Set up the server - I personally prefer `laravel/valet` package for easiest setup (Only Mac)
-- Install MySQL - preferred v8.0
+- Install MySQL and configure it properly - preferred v8.0 
+- In the project root run
+- `php artisan key:generate`
+- `php artisan jwt:secret`
+- Run the seeder `php artisan db:seed --class=DatabaseSeeder` - it will create 2 users with 2 roles (Admin and Member)
 
 ## Book Filters
 - Date filter is being applied by using values 1, 2 or 3 which filters by book published date in last 5 years, last 10 years and more then 10 years respectively.
 - Name filter is being applied by entering a snippet of the book name
 - example `https://{domain}/api/books?name=someName&filter=2` - returns books with names containing "someName" and with published date which is in the last 10 years.
 
-## Available routes
+## Frontend Routes
+
+- `/#/home`
+- `/#/login`
+- `/#/register`
+- `/#/books/{id}` - if the book exists
+
+## Backend API Routes
 - GET `/` 
 - POST `/login`
 - POST `/register`
-- GET `api/books`
-- GET `api/books/{id}`
-- POST `api/table-file`
+- GET `/api/books`
+- GET `/api/books/{id}`
+- POST `/api/table-file`
 
+## Testing
+- There are feature tests available in the `tests/Feature` folder 
+
+## Factories
+- UserFactory
+- BookFactory
+- RoleFactory
 ## Note
 I have added test files for the csv/xml/xlsx files. Also bear in mind when using xml files to set the row attributes to 'name', 'author', 'publisher', 'published_date'. That isn't the case for xlsx/csv file types since the first row isn't read with the parser.
 ## About Laravel

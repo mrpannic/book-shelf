@@ -15,6 +15,9 @@ export default {
     components: {
         Navigation,
         Home
+    },
+    mounted(){
+        this.axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').content
     }
 }
 </script>
